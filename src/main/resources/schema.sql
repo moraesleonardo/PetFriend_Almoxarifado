@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS pedido (
+
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    cliente VARCHAR(30) NOT NULL,
+    data_pedido DATE,
+    status VARCHAR(255) NOT NULL
+);
+
+
+

@@ -1,24 +1,26 @@
 package org.example.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.example.valueobject.StatusPedido;
+
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+@Table(name = "pedido")
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cliente;
-    private String dataPedido;
+    @Column(name = "data_pedido")
+    private LocalDate dataPedido;
     private String status;
 
     // Construtores, getters e setters
     public Pedido() {}
 
-    public Pedido(String cliente, String dataPedido, String status) {
+    public Pedido(String cliente, LocalDate dataPedido, String status) {
         this.cliente = cliente;
         this.dataPedido = dataPedido;
         this.status = status;
@@ -40,11 +42,11 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public String getDataPedido() {
+    public LocalDate getDataPedido() {
         return dataPedido;
     }
 
-    public void setDataPedido(String dataPedido) {
+    public void setDataPedido(LocalDate dataPedido) {
         this.dataPedido = dataPedido;
     }
 
